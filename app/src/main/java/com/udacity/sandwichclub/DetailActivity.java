@@ -12,7 +12,6 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
-import org.json.JSONException;
 
 
 public class DetailActivity extends AppCompatActivity {
@@ -45,7 +44,7 @@ public class DetailActivity extends AppCompatActivity {
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
         String json = sandwiches[position];
 
-        Sandwich sandwich = JsonUtils.parseSandwichJson(json);
+        sandwich = JsonUtils.parseSandwichJson(json);
 
 
         if (sandwich == null) {
@@ -72,7 +71,7 @@ public class DetailActivity extends AppCompatActivity {
     private void populateUI() {
 
 
-            TextView alsoKnownLabel = findViewById(R.id.also_known_label);
+           // TextView alsoKnownLabel = findViewById(R.id.also_known_label);
             TextView alsoKnown = findViewById(R.id.also_known_tv);
             TextView ingredients = findViewById(R.id.ingredients_tv);
             TextView placeOfOrigin = findViewById(R.id.origin_tv);
@@ -81,7 +80,7 @@ public class DetailActivity extends AppCompatActivity {
 
 
             if(sandwich.getAlsoKnownAs().isEmpty()){
-                alsoKnownLabel.setVisibility(View.INVISIBLE);
+                //alsoKnownLabel.setVisibility(View.INVISIBLE);
                 alsoKnown.setVisibility(View.INVISIBLE);
             }
             alsoKnown.setText(sandwich.getAlsoKnownAs().toString());
